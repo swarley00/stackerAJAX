@@ -43,7 +43,6 @@ var showQuestion = function(question) {
 							'</p>' +
  							'<p>Reputation: ' + question.owner.reputation + '</p>'
 	);
-
 	return result;
 };
 
@@ -52,10 +51,10 @@ var showAnswerers = function(myAnswerer) {
 	var result = $('.templates .answerers').clone();
 
 	var answerer = result.find('.answerer');
-	answerer.html('<p>Name: <a target="_blank href=http://stackoverflow.com/users/' + myAnswerer.user_id + ' >' +
-					myAnswerer.display_name + '</a>' + '</p>'
+	answerer.html('<p>Name: <a target="_blank" href=http://stackoverflow.com/users/' + myAnswerer.user.user_id + ' >' +
+					myAnswerer.user.display_name + '</a>' + '</p>'
 	);
-	console.log(myAnswerer.user_id);
+	console.log(myAnswerer.user.display_name);
 	return result;
 };
 
@@ -63,6 +62,7 @@ var showAnswerers = function(myAnswerer) {
 // and creates info about search results to be appended to DOM
 var showSearchResults = function(query, resultNum) {
 	var results = resultNum + ' results for <strong>' + query;
+	console.log(results);
 	return results;
 };
 
