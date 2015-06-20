@@ -11,7 +11,6 @@ $(document).ready( function() {
 		$('.results').html('');
 		var tags = $(this).find("input[name='answerers']").val();
 		getInspiration(tags);
-		console.log(tags);
 	});
 });
 
@@ -56,9 +55,8 @@ var showAnswerers = function(answerer) {
 	answerer.html('<p>Name: <a target="_blank href=http://stackoverflow.com/users/' + answerer.user_id + ' >' +
 					answerer.display_name + '</a>' + '</p>'
 	);
-
+	console.log(answerer.user_id);
 	return result;
-	console.log(result);
 };
 
 // this function takes the results object from StackOverflow
@@ -128,12 +126,12 @@ var getInspiration = function(tags) {
 			var answerer = showAnswerers(item);
 			$('.results').append(answerer);
 		});
+		console.log(result.items);
 	})
 	.fail(function(jqXHR, error, errorThrown) {
 		var errorElem = showError(error);
 		$('.search-results').append(errorElem);
 	});
-	console.log(result.url);
 };
 
 
