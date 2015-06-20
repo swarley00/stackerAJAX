@@ -47,15 +47,15 @@ var showQuestion = function(question) {
 	return result;
 };
 
-var showAnswerers = function(answerer) {
+var showAnswerers = function(myAnswerer) {
 
 	var result = $('.templates .answerers').clone();
 
 	var answerer = result.find('.answerer');
-	answerer.html('<p>Name: <a target="_blank href=http://stackoverflow.com/users/' + answerer.user_id + ' >' +
-					answerer.display_name + '</a>' + '</p>'
+	answerer.html('<p>Name: <a target="_blank href=http://stackoverflow.com/users/' + myAnswerer.user_id + ' >' +
+					myAnswerer.display_name + '</a>' + '</p>'
 	);
-	console.log(answerer.user_id);
+	console.log(myAnswerer.user_id);
 	return result;
 };
 
@@ -126,7 +126,7 @@ var getInspiration = function(tags) {
 			var answerer = showAnswerers(item);
 			$('.results').append(answerer);
 		});
-		console.log(result.items);
+		console.log(result.items.user);
 	})
 	.fail(function(jqXHR, error, errorThrown) {
 		var errorElem = showError(error);
